@@ -1,5 +1,5 @@
 from typing import List
-
+import datetime
 import pandas as pd
 
 CONFIRMED_CASES_URL = f"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data" \
@@ -27,9 +27,11 @@ def poland_cases_by_date(day: int, month: int, year: int = 2020) -> int:
     :param month: Month to get the cases for as an integer indexed from 1
     :return: Number of cases on a given date as an integer
     """
-    
-    # Your code goes here (remove pass)
-    pass
+ 
+  url = f"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv"
+	df = pd.read_csv(url, error_bad_lines=False)
+	result = df.loc[df["Country/Region"]=="Poland"][f"{day}/{month}/{year}"].values[0]
+	return result
 
 
 def top5_countries_by_date(day: int, month: int, year: int = 2020) -> List[str]:
