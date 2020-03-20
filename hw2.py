@@ -40,6 +40,7 @@ def countries_with_no_deaths_count(date: datetime.date) -> int:
     :return: Number of countries with no deaths but with active cases on a given date as an integer
     """
     
+    #test
     # Your code goes here
     pass
 
